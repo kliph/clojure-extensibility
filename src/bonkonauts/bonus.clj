@@ -31,47 +31,64 @@
     (alength arr))
 
   clojure.lang.IMeta
-  (meta [this])
+  (meta [this]
+    (throw (Exception.)))
 
   clojure.lang.IObj
-  (withMeta [this m])
+  (withMeta [this m]
+    (throw (Exception.)))
 
   clojure.lang.IPersistentCollection
-  (cons [this x])
+  (cons [this x]
+    (throw (Exception.)))
 
-  (empty [this])
+  (empty [this]
+    (throw (Exception.)))
 
-  (equiv [this that])
+  (equiv [this that]
+    (throw (Exception.)))
 
   clojure.lang.IPersistentStack
-  (peek [this])
+  (peek [this]
+    (throw (Exception.)))
 
-  (pop [this])
+  (pop [this]
+    (throw (Exception.)))
 
   clojure.lang.IPersistentVector
-  (assocN [this i x])
+  (assocN [this i x]
+    (throw (Exception.)))
 
-  (length [this])
+  (length [this]
+    (throw (Exception.)))
 
   clojure.lang.Reversible
-  (rseq [this])
+  (rseq [this]
+    (throw (Exception.)))
 
   clojure.lang.Associative
-  (assoc [this k v])
+  (assoc [this k v]
+    (throw (Exception.)))
 
-  (containsKey [this k])
+  (containsKey [this k]
+    (throw (Exception.)))
 
-  (entryAt [this k])
+  (entryAt [this k]
+    (throw (Exception.)))
 
   clojure.lang.ILookup
-  (valAt [this k not-found])
+  (valAt [this k not-found]
+    (throw (Exception.)))
 
-  (valAt [this k])
+  (valAt [this k]
+    (throw (Exception.)))
 
   clojure.lang.IFn
-  (invoke [this k])
+  (invoke [this k]
+    (throw (Exception.)))
 
-  (applyTo [this args])
+  (applyTo [this args]
+    (throw (Exception.)))
 
   clojure.lang.Seqable
   (seq [this]
