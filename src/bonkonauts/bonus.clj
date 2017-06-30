@@ -96,3 +96,6 @@
 
 (not= (Util/hasheq (cow-vector 1 2 3))
       (Util/hasheq (cow-vector 1 2 4)))
+
+(identical? (cow-vector 1 2 3)
+            (cow-vector 1 2 3))
