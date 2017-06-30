@@ -68,7 +68,13 @@
   (applyTo [this args])
 
   clojure.lang.Seqable
-  (seq [this]))
+  (seq [this]
+    (when (> (alength arr) 0)
+      (let [vector-seq (fn vector-seq [i]
+                         (lazy-seq
+                          (when (< i (alength arr))
+                            (cons (aget arr i) (vector-seq (inc i))))))]
+        (vector-seq 0)))))
 
 ;; Constructor function for Copy on Write Vector
 (defn cow-vector [& more]
