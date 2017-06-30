@@ -20,7 +20,10 @@
   (nth [this n]
     (aget arr n))
 
-  (nth [this n not-found])
+  (nth [this n not-found]
+    (if (and (<= 0 n) (< n (alength arr)))
+      (aget arr n)
+      not-found))
 
   clojure.lang.Counted
   (count [this]
@@ -85,5 +88,5 @@
 (= [] (cow-vector))
 (= 3 (count (cow-vector 1 2 3)))
 (= 1 (nth (cow-vector 1 2 3) 0))
-
+(= "Not found" (nth (cow-vector 1 2 3) 5 "Not found"))
 (= [1 2 3] (cow-vector 1 2 3))
