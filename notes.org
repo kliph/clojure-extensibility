@@ -1,0 +1,7 @@
+* COW Vector implementation
+** Use =Array=
+** Useful reference implementation
+https://github.com/clojure/clojurescript/blob/0d46d96c18c641bc34275762b83869033bc02267/src/cljs/cljs/core.cljs#L1737
+
+Assuming this is COW (without investigating closely, yet) based on
+[[https://github.com/clojure/clojurescript/blob/d0be39660f3a65422c3de6a774ceec0b6a863ee2/devnotes/todo.org#first-cut-cow-internal-array][evidence here]].
