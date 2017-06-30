@@ -17,12 +17,14 @@
   (hasheq [this])
 
   clojure.lang.Indexed
-  (nth [this n])
+  (nth [this n]
+    (aget arr n))
 
   (nth [this n not-found])
 
   clojure.lang.Counted
-  (count [this])
+  (count [this]
+    (alength arr))
 
   clojure.lang.IMeta
   (meta [this])
@@ -79,3 +81,9 @@
 ;; Constructor function for Copy on Write Vector
 (defn cow-vector [& more]
   (->COWVector (object-array more) {}))
+
+(= [] (cow-vector))
+(= 3 (count (cow-vector 1 2 3)))
+(= 1 (nth (cow-vector 1 2 3) 0))
+
+(= [1 2 3] (cow-vector 1 2 3))
