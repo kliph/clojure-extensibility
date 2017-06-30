@@ -14,7 +14,8 @@
 ;; The vector holds an array of values and a metadata field
 (deftype COWVector [arr _meta]
   clojure.lang.IHashEq
-  (hasheq [this])
+  (hasheq [this]
+    (hash-ordered-coll (seq this)))
 
   clojure.lang.Indexed
   (nth [this n]
@@ -90,3 +91,8 @@
 (= 1 (nth (cow-vector 1 2 3) 0))
 (= "Not found" (nth (cow-vector 1 2 3) 5 "Not found"))
 (= [1 2 3] (cow-vector 1 2 3))
+(= (Util/hasheq (cow-vector 1 2 3))
+   (Util/hasheq (cow-vector 1 2 3)))
+
+(not= (Util/hasheq (cow-vector 1 2 3))
+      (Util/hasheq (cow-vector 1 2 4)))
